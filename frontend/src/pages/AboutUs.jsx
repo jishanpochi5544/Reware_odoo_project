@@ -26,10 +26,10 @@ const AboutUs = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-  // Team members data - you can replace with your actual team details
+  // Team members data
   const teamMembers = [
     {
-      name: "Your Name",
+      name: "Jishan",
       role: "Team Lead & Full Stack Developer",
       avatar: "👨‍💻",
       bio: "Passionate about sustainable technology and creating impactful solutions. Leading the development of ReWear platform.",
@@ -40,7 +40,7 @@ const AboutUs = () => {
       github: "#"
     },
     {
-      name: "Team Member 2",
+      name: "Meet",
       role: "Frontend Developer",
       avatar: "👩‍💻",
       bio: "Creative developer focused on user experience and modern UI/UX design. Making sustainable fashion accessible to everyone.",
@@ -51,23 +51,12 @@ const AboutUs = () => {
       github: "#"
     },
     {
-      name: "Team Member 3",
+      name: "Fenil",
       role: "Backend Developer",
       avatar: "👨‍💻",
       bio: "Backend specialist with expertise in API development and database design. Ensuring robust and scalable solutions.",
       skills: ["Node.js", "Express", "MongoDB", "API Design"],
       education: "Software Engineering",
-      experience: "2+ years",
-      linkedin: "#",
-      github: "#"
-    },
-    {
-      name: "Team Member 4",
-      role: "UI/UX Designer",
-      avatar: "👩‍🎨",
-      bio: "Creative designer passionate about sustainable design principles. Creating beautiful, accessible, and eco-friendly interfaces.",
-      skills: ["Figma", "Adobe XD", "Prototyping", "Design Systems"],
-      education: "Design",
       experience: "2+ years",
       linkedin: "#",
       github: "#"

@@ -24,6 +24,10 @@ import AboutUs from './pages/AboutUs';
 import ContactSupport from './pages/ContactSupport';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import AdminDashboard from './components/admin/AdminDashboard';
+import TestAdmin from './pages/TestAdmin';
+import AddItem from './components/items/AddItem';
+import AddItemDebug from './components/items/AddItemDebug';
 
 function App() {
   return (
@@ -54,6 +58,10 @@ function App() {
                     <Route path="/contact" element={<ContactSupport />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
+                    <Route path="/admin" element={<AdminDashboard />} />
+                    <Route path="/test-admin" element={<TestAdmin />} />
+                    <Route path="/add-item" element={<AddItem />} />
+                    <Route path="/add-item-debug" element={<AddItemDebug />} />
                   </Routes>
                 </main>
                 <Footer />

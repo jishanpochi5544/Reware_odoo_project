@@ -7,6 +7,7 @@ import itemSlice from './slices/itemSlice';
 import swapSlice from './slices/swapSlice';
 import userSlice from './slices/userSlice';
 import uiSlice from './slices/uiSlice';
+import adminSlice from './slices/adminSlice';
 
 // Combine reducers
 const rootReducer = combineReducers({
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   swaps: swapSlice,
   user: userSlice,
   ui: uiSlice,
+  admin: adminSlice,
 });
 
 // Configure store

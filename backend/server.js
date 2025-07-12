@@ -14,6 +14,7 @@ require('express-async-errors');
 require('dotenv').config();
 
 const connectDB = require('./config/db');
+const { configureCloudinary } = require('./config/cloudinary');
 const logger = require('./utils/logger');
 const errorHandler = require('./middleware/errorHandler');
 const notFound = require('./middleware/notFound');
@@ -39,6 +40,9 @@ const io = new Server(server, {
 
 // Connect to MongoDB
 connectDB();
+
+// Configure Cloudinary
+configureCloudinary();
 
 // Security middleware
 app.use(helmet());
