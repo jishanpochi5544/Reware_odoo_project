@@ -24,6 +24,7 @@ import * as Yup from 'yup';
 import { Helmet } from 'react-helmet-async';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import api from '../../services/api';
 
 const validationSchema = Yup.object({
   title: Yup.string()
@@ -177,19 +178,13 @@ const AddItem = () => {
         throw new Error('You must be logged in to add items');
       }
 
-      const response = await fetch('/api/items', {
-        method: 'POST',
+      const response = await api.post('/items', formData, {
         headers: {
-          'Authorization': `Bearer ${token}`
-        },
-        body: formData
+          'Content-Type': 'multipart/form-data',
+        }
       });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || data.errors?.[0]?.msg || 'Failed to create item');
-      }
+      const data = response.data;
 
       setSuccess('Item created successfully! Redirecting to dashboard...');
       setTimeout(() => {
@@ -197,7 +192,13 @@ const AddItem = () => {
       }, 2000);
     } catch (err) {
       console.error('Error creating item:', err);
-      setError(err.message || 'Failed to create item. Please try again.');
+      if (err.response) {
+        setError(err.response.data.message || err.response.data.errors?.[0]?.msg || 'Failed to create item');
+      } else if (err.request) {
+        setError('Network error. Please check your connection.');
+      } else {
+        setError(err.message || 'Failed to create item. Please try again.');
+      }
     } finally {
       setIsSubmitting(false);
     }
